@@ -14,16 +14,18 @@
     </mat-toolbar>
   </p>
 
-  
-  <form>
+  {{contacto.nome}}
+  {{contacto.email}}
+
+  <form #contactoForm="ngForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Nome</mat-label>
-      <input matInput placeholder="Ex. António" [(ngModel)]="nome" value="nome">
+      <input matInput placeholder="Ex. António" [(ngModel)]="contacto.nome" name="nome">
     </mat-form-field>
     <p>
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Ex. nome@dominio.com">
+        <input matInput placeholder="Ex. nome@dominio.com" [(ngModel)]="contacto.email" name="email">
       </mat-form-field>
     </p>
 

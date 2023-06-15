@@ -8,10 +8,11 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ContactoService {
 
- api: string = environment.API
+ apiUrl: string = environment.API
   constructor(private httpCliente: HttpClient) { }
 
   salvar(contacto: Contacto): Observable<Contacto>{
-    return this.httpCliente.post<Contacto>(`${this.api}/contactos`, contacto)
+    return this.httpCliente.post<Contacto>(this.apiUrl, contacto)
   }
+
 }
