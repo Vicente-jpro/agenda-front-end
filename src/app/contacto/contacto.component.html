@@ -15,19 +15,38 @@
   </p>
 
 
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <mat-label>Nome</mat-label>
-      <input formControlName="nome" matInput placeholder="Ex. António" [(ngModel)]="contacto.nome" name="nome">
-    </mat-form-field>
-    <p>
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input formControlName="email" matInput placeholder="Ex. nome@dominio.com" [(ngModel)]="contacto.email" name="email">
-      </mat-form-field>
-    </p>
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Novo">
+      <ng-template mat-tab-label>
+        <mat-icon>people</mat-icon>
+      </ng-template>
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input formControlName="nome" matInput placeholder="Ex. António" [(ngModel)]="contacto.nome" name="nome">
+        </mat-form-field>
+        <p>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput placeholder="Ex. nome@dominio.com" [(ngModel)]="contacto.email" name="email">
+          </mat-form-field>
+        </p>
 
-    <p>
-        <button mat-raised-button color="primary">Adicionar</button>
-    </p>
-  </form>
+        <p>
+            <button mat-raised-button color="primary">Adicionar</button>
+        </p>
+      </form>
+    </mat-tab>
+
+    <mat-tab label="Todos">
+      <ng-template mat-tab-label>
+        <mat-icon>list</mat-icon>
+      </ng-template>
+      Content 2
+    </mat-tab>
+
+    <mat-tab label="Third">Content 3</mat-tab>
+  </mat-tab-group>
+
+
+
