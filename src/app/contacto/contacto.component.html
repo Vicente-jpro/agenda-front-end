@@ -14,6 +14,7 @@
     </mat-toolbar>
   </p>
 
+  <app-contacto-detalhe></app-contacto-detalhe>
 
   <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
     <mat-tab label="Novo">
@@ -52,7 +53,10 @@
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let element"> 
             <div *ngIf="element.foto">
-              <img width="50" height="50" src="data:image/png;base64, {{element.foto}}" alt="foto" > 
+              <img width="50" height="50" 
+                   src="data:image/png;base64, {{element.foto}}" 
+                   alt="foto" (click)="visualizarContacto(element)"
+              > 
             </div>
             <div *ngIf="!element.foto">
               <input type="file" name="foto" (change)="uploadFoto($event, element)">  

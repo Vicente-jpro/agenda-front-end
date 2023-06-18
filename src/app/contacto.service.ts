@@ -21,11 +21,11 @@ export class ContactoService {
   }
 
   salvarForto(contacto: Contacto, formData: FormData): Observable<any>{
-    return this.httpCliente.put(`${this.apiUrl}/${contacto.id}/foto`, formData)
+    return this.httpCliente.put(`${this.apiUrl}/${contacto.id}/foto`, formData, {responseType:'blob'})
   }
-  
+
   listar(): Observable<Contacto[]>{
-    return this.httpCliente.get<Contacto[]>(this.apiUrl);
+    return this.httpCliente.get<Contacto[]>(this.apiUrl, {responseType:'json'});
   }
 
 }

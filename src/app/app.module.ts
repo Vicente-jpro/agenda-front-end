@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ContactoService } from './contacto.service';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -17,13 +19,15 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactoDetalheComponent } from './contacto/contacto-detalhe.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactoComponent
+    ContactoComponent,
+    ContactoDetalheComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatTableModule,
     MatTabsModule,
