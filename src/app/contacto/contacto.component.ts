@@ -15,7 +15,7 @@ export class ContactoComponent implements OnInit{
   contactos: Contacto[] = new Array
   mensagem: string = ''
   errors: string[] = []
-  colunas: string[]= ['id', 'nome', 'email', 'favorito']
+  colunas: string[]= ['foto', 'id', 'nome', 'email', 'favorito']
 
   constructor(private contactoService: ContactoService, private formBuilder: FormBuilder){
     this.contacto = new Contacto('','')
@@ -70,6 +70,28 @@ export class ContactoComponent implements OnInit{
         console.log('Erro ao obter os contactos', errorResponse)
       }
   })
+  }
+
+  uploadFoto(event: any, contacto: Contacto){
+    const files = event.target.files
+    if (files){
+      const foto = files[0];
+      const formData: FormData = new FormData()
+      formData.append('foto', foto)
+
+      this.contactoService
+          .salvarForto(contacto, formData)
+          .subscribe({
+            next: response => {
+              this.mensagem = "Foto salva com sucesso."
+              console.log(this.mensagem)
+            },
+            error: errorResponse => {
+              this.errors = errorResponse.error.errors 
+              console.log(this.errors)
+            }
+          })
+    }
   }
 
   onSubmit(){

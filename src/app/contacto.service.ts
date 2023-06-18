@@ -20,6 +20,10 @@ export class ContactoService {
     return this.httpCliente.patch<Contacto>(`${this.apiUrl}/${idContacto}`, contacto)
   }
 
+  salvarForto(contacto: Contacto, formData: FormData): Observable<any>{
+    return this.httpCliente.put(`${this.apiUrl}/${contacto.id}/foto`, formData)
+  }
+  
   listar(): Observable<Contacto[]>{
     return this.httpCliente.get<Contacto[]>(this.apiUrl);
   }
