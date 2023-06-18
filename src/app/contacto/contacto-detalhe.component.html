@@ -1,9 +1,11 @@
 <mat-card class="example-card">
-    <mat-card-header>
+    <mat-card-header style="text-align: center;">
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Contacto</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="data:image/png;base64, {{ contacto.foto }}" >
+    <img mat-card-image width="350" height="350"
+         src="data:image/png;base64, {{ contacto.foto }}" 
+    >
     <mat-card-content>
       <p>
         <strong> {{ contacto.nome }} </strong>

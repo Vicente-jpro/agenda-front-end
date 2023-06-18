@@ -64,8 +64,8 @@ export class ContactoComponent implements OnInit{
 
   visualizarContacto(contato: Contacto){
     this.dialog.open(ContactoDetalheComponent, {
-      width: '300px',
-      height: '300px',
+      width: '600px',
+      height: '600px',
       data: contato
     })
   }
