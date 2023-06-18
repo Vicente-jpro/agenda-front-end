@@ -16,4 +16,12 @@ export class ContactoService {
     return this.httpCliente.post<Contacto>(this.apiUrl, contacto)
   }
 
+  atualizar(contacto: Contacto, idContacto: number): Observable<Contacto>{
+    return this.httpCliente.patch<Contacto>(`${this.apiUrl}/${idContacto}`, contacto)
+  }
+
+  listar(): Observable<Contacto[]>{
+    return this.httpCliente.get<Contacto[]>(this.apiUrl);
+  }
+
 }
