@@ -4,6 +4,7 @@ import { ContactoService } from '../contacto.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactoDetalheComponent } from './contacto-detalhe.component';
+import { PaginaContacto } from './PaginaContacto';
 
 
 @Component({
@@ -16,20 +17,27 @@ export class ContactoComponent implements OnInit{
   formulario: FormGroup = new FormGroup('')
   contacto: Contacto
   contactos: Contacto[] = new Array
+  paginaContactos: PaginaContacto[] = []
+  paginaContacto: PaginaContacto = new PaginaContacto
   mensagem: string = ''
   errors: string[] = []
   colunas: string[]= ['foto', 'id', 'nome', 'email', 'favorito']
-
+  pageSizeOptions: number[] = [5, 10, 15, 20]
   constructor(
     private contactoService: ContactoService, 
     private formBuilder: FormBuilder,
     private dialog: MatDialog){
+    
+    this.paginaContacto.totalElements = 0
+    this.paginaContacto.pageNumber = 0
+    this.paginaContacto.pageSize = 5
+
     this.contacto = new Contacto('','')
   }
 
   ngOnInit(): void {
     this.montarFormulario();
-    this.listarContactos();
+    this.listarContactos(this.paginaContacto.pageNumber , this.paginaContacto.pageSize);
   }
 
   montarFormulario(){
@@ -71,13 +79,21 @@ export class ContactoComponent implements OnInit{
     })
   }
 
-  listarContactos(){
+  listarContactos(page: number, size: number){
     this.contactoService
-    .listar()
+    .listar(page, size)
     .subscribe({
       next: response =>{
+        let i 
+      for ( i = 0; i < response.length; i++){
+        this.contactos = response.
+        this.paginaContacto.totalElements = response[i].totalElements
+        this.paginaContacto.pageSize = response[i].pageSize
+        console.log(i)
+      }
+      console.log("imprimindo o erro.")
+      console.log(response)
 
-      this.contactos = response
     }, 
       error: errorResponse =>{
         console.log('Erro ao obter os contactos', errorResponse)

@@ -30,7 +30,7 @@ export class ContactoService {
           .set('page', page)
           .set('size', size)
           
-    return this.httpCliente.get<PaginaContacto[]>(`${this.apiUrl}?${params}`, {responseType:'json'});
+    return this.httpCliente.get<PaginaContacto[]>(`${this.apiUrl}?${params}`);
   }
 
 }

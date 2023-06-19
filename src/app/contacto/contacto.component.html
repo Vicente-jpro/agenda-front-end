@@ -93,6 +93,11 @@
         <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
       </table>
 
+    <mat-paginator [length]="paginaContacto.totalElements"
+          [pageSize]="paginaContacto.pageSize"
+          [pageSizeOptions]="pageSizeOptions"
+          aria-label="Select page">
+    </mat-paginator>
 
     </mat-tab>
 
