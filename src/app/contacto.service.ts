@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Contacto } from './contacto';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { PaginaContacto } from './contacto/PaginaContacto';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +25,12 @@ export class ContactoService {
     return this.httpCliente.put(`${this.apiUrl}/${contacto.id}/foto`, formData, {responseType:'blob'})
   }
 
-  listar(): Observable<Contacto[]>{
-    return this.httpCliente.get<Contacto[]>(this.apiUrl, {responseType:'json'});
+  listar(page: number, size: number): Observable<PaginaContacto[]>{
+    const params = new HttpParams()
+          .set('page', page)
+          .set('size', size)
+          
+    return this.httpCliente.get<PaginaContacto[]>(`${this.apiUrl}?${params}`, {responseType:'json'});
   }
 
 }

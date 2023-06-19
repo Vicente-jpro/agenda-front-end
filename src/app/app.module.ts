@@ -20,7 +20,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactoDetalheComponent } from './contacto/contacto-detalhe.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -41,6 +41,7 @@ import { ContactoDetalheComponent } from './contacto/contacto-detalhe.component'
     MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatPaginatorModule,
     MatTableModule,
     MatTabsModule,
     FormsModule,

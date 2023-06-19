@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ContactoDetalheComponent } from './contacto-detalhe.component';
 
+
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
