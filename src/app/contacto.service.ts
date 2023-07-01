@@ -25,12 +25,15 @@ export class ContactoService {
     return this.httpCliente.put(`${this.apiUrl}/${contacto.id}/foto`, formData, {responseType:'blob'})
   }
 
-  listar(page: number, size: number): Observable<PaginaContacto[]>{
+  listar(page: number, size: number): Observable<any>{
     const params = new HttpParams()
           .set('page', page)
           .set('size', size)
           
-    return this.httpCliente.get<PaginaContacto[]>(`${this.apiUrl}?${params}`);
+    return this.httpCliente.get<any>(
+      `${this.apiUrl}?${params}`,  
+      {responseType:'json'}
+    );
   }
 
 }
