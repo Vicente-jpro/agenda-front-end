@@ -84,13 +84,10 @@ export class ContactoComponent implements OnInit{
     .listar(page, size)
     .subscribe({
       next: response =>{
-        let i 
-      for ( i = 0; i < response.length; i++){
-        this.contactos = response.
-        this.paginaContacto.totalElements = response[i].totalElements
-        this.paginaContacto.pageSize = response[i].pageSize
-        console.log(i)
-      }
+        this.contactos = response.content
+        this.paginaContacto.totalElements = response.totalElements
+        this.paginaContacto.pageSize = response.pageable.pageSize
+        
       console.log("imprimindo o erro.")
       console.log(response)
 

@@ -5,5 +5,5 @@ export class PaginaContacto{
     pageNumber: number = 0
     pageSize: number = 0 
     totalPages: number = 0
-    totalElements: number = 0
+    totalElements: number = 0 
 }
